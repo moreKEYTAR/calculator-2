@@ -24,10 +24,25 @@ while True:
 #         decide which math function to call based on first token
     else:
 
-        #  for the other tokens in the list, convert strings to floats
-        for i in range(len(tokens)):
-            if i > 0:
-                tokens[i] = float(tokens[i])
+        # for the other tokens in the list, convert strings to floats
+        # only had to make one token a float, but we did both
+        # for i in range(len(tokens)):
+        #     if i > 0:
+        #         tokens[i] = float(tokens[i])
+
+        # for i, token in enumerate(tokens[1:]):
+        #     tokens[i] = float(token)
+
+        #option 1 means use nums below, option 2 use tokens below
+        # nums = map(float, tokens[1:])
+        tokens[1:] = map(float, tokens[1:])
+
+
+        #list comprehensions!
+        # nums = [float(token) for token in tokens[1:]]
+        # tokens[1:] = [float(token) for token in tokens[1:]]
+
+
 
         # checks for math sign, then calls math function
         if tokens[0] == "+":
@@ -53,3 +68,15 @@ while True:
 
         elif tokens[0] == "mod":
             print mod(tokens[1], tokens[2])
+
+
+        # operator_to_fn = {"+": add,}
+
+
+
+        # fromatting help
+        # print "The {} went {} into the {} {}".format(noun, adverb, adjective, noun2)
+        # print "The {noun} went {adverb} into the {adjective} {noun2}".format(noun=noun,
+        #                                                                      adverb=adverb,
+        #                                                                      adjective=adjective,
+        #                                                                      noun2=noun2)
